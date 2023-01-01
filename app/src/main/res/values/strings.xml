@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">VetDosage</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Vet Dosage Helper</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Welcome!</string>
+    <string name="Dosages">Dosage Amounts</string>
+    <string name="canine">Canine</string>
+    <string name="feline">Feline</string>
+    <string name="lb">Lb</string>
+    <string name="enter_the_weight_here_in_lb">Enter the KG weight.</string>
+    <string name="kg">Kg</string>
+    <string name="r">R</string>
+    <string name="result">Result:</string>
+</resources>
