@@ -150,7 +150,48 @@ class FirstFragment : Fragment() {
                         "INDUCTION (inject by IV) \n Midaz: $felineMidaz ml \n Prop: $felineProp ml \n" +
                         "POST-OP (Inject by SQ but only pick ONE to inject.) \n Onsior: $felineOnsior ml \n Bupe: $felineBupe ml \n BupeSR: $felineBupeSR ml").toString()
             }
-//            waiting for vanessa to tell me the lb formula
+
+            else if (isLb && isFeline) {
+                val lbToKg = 0.45359237
+                val felineDex: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0
+                val felineMidaz: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0
+                val felineTorb: Double = ((lbToKg * value.toDouble() * .02) * 100.0).roundToInt() / 100.0
+                // 3 above is kitty magic, combine all 3 and inject by IV or IM
+                //Antisedan = felixeDex, inject after kitty magic
+                val felineHydro: Double = ((lbToKg * value.toDouble() * .05) * 100.0).roundToInt() / 100.0
+                val felineCerenia: Double = ((lbToKg * value.toDouble() / 10) * 100.0).roundToInt() / 100.0
+                // 2 above pre-med, hydro im cerenia sq
+                val felineProp: Double = ((lbToKg * value.toDouble() * .4) * 100.0).roundToInt() / 100.0
+                // prop and midaz Induction by IV
+                val felineOnsior: Double = ((lbToKg * value.toDouble() * .1) * 100.0).roundToInt() / 100.0
+                val felineBupe: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0
+                val felineBupeSR: Double = ((lbToKg * value.toDouble() * .03) * 100.0).roundToInt() / 100.0
+                // all 3 above are SQ but pick only 1 to inject
+
+
+                //change result textivew
+                textView.setText("Dosages for a $value lb Feline \n Combine Dex Midaz and Torb and inject IV / IM to sedate. \n Dex: $felineDex ml \n Midaz: $felineMidaz ml \n Torb: $felineTorb ml \n Antisedan (IM): $felineDex ml \n " +
+                        "PRE-MED \n Hydro (IM): $felineHydro ml \n Cerenia (SQ): $felineCerenia ml \n " +
+                        "INDUCTION (inject by IV) \n Midaz: $felineMidaz ml \n Prop: $felineProp ml \n" +
+                        "POST-OP (Inject by SQ but only pick ONE to inject.) \n Onsior: $felineOnsior ml \n Bupe: $felineBupe ml \n BupeSR: $felineBupeSR ml").toString()
+            }
+            else if (isLb && isCanine) {
+                val lbToKg = 0.45359237
+                val canineHydro: Double = ((lbToKg * value.toDouble() * .05) * 100.0).roundToInt() / 100.0
+                //val canineHydro = (canineHydro1 * 100.0).roundToInt() / 100.0
+                val canineCerenia: Double = ((lbToKg * value.toDouble() * .1) * 100.0).roundToInt() / 100.0
+                val canineMidaz: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0
+                val canineProp: Double = ((lbToKg * value.toDouble() * .4) * 100.0).roundToInt() / 100.0
+                val canineMelox: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0 // if dog is under or equal 15lb
+                val canineRima: Double = ((lbToKg * value.toDouble() * .088) * 100.0).roundToInt() / 100.0 // if dog is over 15lb
+                val canineBupe: Double = ((lbToKg * value.toDouble() * .04) * 100.0).roundToInt() / 100.0
+                //change result textview
+                textView.setText("Dosages for a $value lb Canine \n PRE-MED \n Hydro (IM) $canineHydro ml, \n Cerenia (SQ) $canineCerenia ml, \n " +
+                        "INDUCTION \n Midaz (IV) $canineMidaz ml, \n Prop (IV) $canineProp ml, \n" +
+                        "POST-OP (Melox + Bupe if <15lb else Rima + Bupe) \n Melox (SQ) $canineMelox ml, \n Rima (SQ) $canineRima ml, \n Bupe (SQ) $canineBupe ml.")
+                    .toString()
+            }
+
 //            else if (isLb && isCanine) {
 //                showKgWeight = showKgWeight * 2.2
 //                var value: String = showKgWeight.getText().toString()
